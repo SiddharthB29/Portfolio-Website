@@ -1,5 +1,5 @@
 import styles from './HeroStyles.module.css';
-import heroImg from '../../assets/croppedme.png';
+import heroImg from '../../assets/siddharth.jpg';
 import sun from '../../assets/sun.svg';
 import moon from '../../assets/moon.svg';
 import twitterLight from '../../assets/twitter-light.svg';
@@ -8,7 +8,7 @@ import githubLight from '../../assets/github-light.svg';
 import githubDark from '../../assets/github-dark.svg';
 import linkedinLight from '../../assets/linkedin-light.svg';
 import linkedinDark from '../../assets/linkedin-dark.svg';
-import CV from '../../assets/pallavcv.pdf';
+import CV from '../../assets/sidresume.pdf';
 import { useTheme } from '../../common/ThemeContext';
 
 function Hero() {
@@ -41,7 +41,7 @@ function Hero() {
           Bharti
         </h1>
         <h2>Competitive Programmer</h2>
-        <h2>Web Developer</h2>
+        <h2>Passionate Developer</h2>
         <span>
           <a href="https://www.instagram.com/siddharthbhartii/" target="_blank">
             <img src={twitterIcon} alt="Twitter icon" />
@@ -54,7 +54,7 @@ function Hero() {
           </a>
         </span>
         <p className={styles.description}>
-        Competitive programmer X MERN developer — solving problems and building things that matter.
+        Competitive programmer X Backend developer — solving problems and building things that matter.
         </p>
         <a href={CV} download>
           <button className="hover">Resume</button>
