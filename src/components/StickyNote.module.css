@@ -1,0 +1,35 @@
+.note {
+  position: relative;
+  display: inline-block;
+  padding: 18px 20px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+  border-radius: 2px;
+}
+
+.lined {
+  background-color: var(--paper);
+  background-image: linear-gradient(transparent 26px, rgba(96, 128, 230, 0.4) 27px);
+  background-size: 100% 27px;
+  border-top: 9px solid var(--paper-deep);
+}
+
+.graph {
+  background-color: #e8e2d2;
+  background-image: linear-gradient(rgba(90, 90, 90, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 90, 90, 0.18) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.kraft {
+  background-color: var(--kraft);
+}
+
+.note::after {
+  /* paper grain */
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23g)' opacity='0.07'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}

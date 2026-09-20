@@ -1,0 +1,25 @@
+.tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 92px;
+  height: 26px;
+  background-color: rgba(236, 205, 158, 0.55);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(120, 90, 50, 0.08) 0 4px,
+    rgba(120, 90, 50, 0) 4px 9px
+  );
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(1px);
+  z-index: 2;
+}
+
+.red {
+  background-color: rgba(232, 85, 63, 0.75);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.12) 0 4px,
+    rgba(255, 255, 255, 0) 4px 9px
+  );
+}

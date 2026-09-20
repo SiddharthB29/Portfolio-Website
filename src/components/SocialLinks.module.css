@@ -1,0 +1,22 @@
+.row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.row a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: var(--chalk);
+  border: 1.6px dashed rgba(239, 230, 216, 0.4);
+  transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+
+.row a:hover {
+  color: var(--red);
+  border-color: var(--red);
+  background: rgba(232, 85, 63, 0.08);
+}

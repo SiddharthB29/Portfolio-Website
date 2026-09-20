@@ -1,0 +1,88 @@
+.section {
+  position: relative;
+  padding: clamp(80px, 12vw, 150px) clamp(20px, 6vw, 80px);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 18px;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--paper);
+  border-radius: 4px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+}
+
+.card::before {
+  /* punched holes */
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 12px;
+  bottom: 12px;
+  width: 6px;
+  background-image: radial-gradient(circle, var(--desk) 2.6px, transparent 3px);
+  background-size: 100% 26px;
+  background-repeat: repeat-y;
+  opacity: 0.35;
+}
+
+.index {
+  grid-row: 1;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  transform: rotate(-2deg);
+}
+
+.groupTitle {
+  grid-row: 1;
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.chips {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+}
+
+.chip {
+  font-family: var(--font-hand2);
+  font-size: 1.02rem;
+  color: var(--ink);
+  background: rgba(232, 85, 63, 0.09);
+  border: 1.5px solid rgba(232, 85, 63, 0.4);
+  border-radius: 12px 4px 12px 4px;
+  padding: 3px 14px;
+  transform: rotate(-0.6deg);
+  transition: background 160ms ease, transform 160ms ease, color 160ms ease;
+}
+
+.chip:hover {
+  background: var(--red);
+  color: var(--paper);
+  transform: rotate(0.8deg) scale(1.06);
+}
+
+.card:nth-child(even) {
+  background: var(--paper-deep);
+}
