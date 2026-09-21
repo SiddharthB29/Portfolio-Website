@@ -1,5 +1,4 @@
 import Nav from './components/Nav';
-import StampStrip from './components/StampStrip';
 import Hero from './sections/Hero/Hero';
 import Work from './sections/Work/Work';
 import Stats from './sections/Stats/Stats';
@@ -12,7 +11,6 @@ export default function App() {
   return (
     <>
       <Nav />
-      <StampStrip />
       <main>
         <Hero />
         <Work />

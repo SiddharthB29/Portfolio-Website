@@ -35,7 +35,6 @@ export const profile = {
     hand: 'compiled clean.',
   },
   location: 'Bengaluru • GMT +5:30',
-  portrait: 'photo-coming-soon',
   availability: 'OPEN TO WORK',
 } as const;
 

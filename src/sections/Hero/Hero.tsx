@@ -5,7 +5,9 @@ import PaperSheet from '../../components/PaperSheet';
 import Tape from '../../components/Tape';
 import SocialLinks from '../../components/SocialLinks';
 import { Doodle, Bird, Plant, Flower, Mushroom, BrowserWindow, Sparkle, Spiral, SquiggleArrow, Noodles, Cat } from '../../components/ChalkDoodles';
-import portraitFallback from '../../assets/siddharth.jpg';
+import InkSticker, { InkArt } from '../../components/InkSticker';
+import itachi from '../../assets/ink/itachi.png';
+import portraitFallback from '../../assets/SiddharthBharti.jpg';
 
 export default function Hero() {
   const reduce = useReducedMotion();
@@ -22,6 +24,7 @@ export default function Hero() {
       <Doodle className={styles.dCat} delay={1.5}><Cat /></Doodle>
       <Doodle className={styles.dSpiral} delay={1.4}><Spiral /></Doodle>
       <Doodle className={styles.dArrow} delay={1.55} float={false}><SquiggleArrow /></Doodle>
+      <InkSticker className={styles.dItachi} delay={1.7}><InkArt src={itachi} /></InkSticker>
 
       <PaperSheet className={styles.sheet} from={-2}>
         <div className={styles.grid}>
@@ -102,7 +105,6 @@ export default function Hero() {
                 alt="Portrait of Siddharth Bharti"
                 className={styles.photo}
               />
-              <span className={styles.photoNote}>new photo loading…</span>
             </div>
             <p className={styles.photoCaption}>hello, that&rsquo;s me →</p>
           </motion.div>

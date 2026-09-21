@@ -2,6 +2,8 @@ import { motion, useReducedMotion } from 'framer-motion';
 import styles from './Skills.module.css';
 import { skillGroups } from '../../data/portfolio';
 import SectionHeading from '../../components/SectionHeading';
+import InkSticker, { InkArt } from '../../components/InkSticker';
+import kurama from '../../assets/ink/newkurama.png';
 
 export default function Skills() {
   const reduce = useReducedMotion();
@@ -9,6 +11,8 @@ export default function Skills() {
   return (
     <section className={styles.section} id="skills">
       <SectionHeading kicker="tools of the trade" title="Skills" />
+
+      <InkSticker className={styles.dKurama} delay={0.9}><InkArt src={kurama} /></InkSticker>
 
       <div className={styles.stack}>
         {skillGroups.map((group, i) => (

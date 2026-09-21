@@ -5,7 +5,9 @@ import Polaroid from '../../components/Polaroid';
 import SectionHeading from '../../components/SectionHeading';
 import CountUp from '../../components/CountUp';
 import { HandCircle } from '../../components/ChalkDoodles';
+import InkSticker, { InkArt } from '../../components/InkSticker';
 import rings from '../../assets/leetcode-rings.jpg';
+import konoha from '../../assets/ink/konohanew.png';
 
 export default function Stats() {
   const reduce = useReducedMotion();
@@ -13,6 +15,8 @@ export default function Stats() {
   return (
     <section className={styles.section} id="stats">
       <SectionHeading kicker="the grind, quantified" title="Stats" />
+
+      <InkSticker className={styles.dKonoha} delay={0.9}><InkArt src={konoha} /></InkSticker>
 
       <div className={styles.layout}>
         <motion.div

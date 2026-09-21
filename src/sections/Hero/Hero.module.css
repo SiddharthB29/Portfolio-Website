@@ -148,20 +148,6 @@
   display: block;
 }
 
-.photoNote {
-  position: absolute;
-  left: 8px;
-  bottom: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
-  color: var(--paper);
-  background: rgba(29, 26, 23, 0.75);
-  padding: 4px 8px;
-  border-radius: 3px;
-  transform: rotate(-1deg);
-}
-
 .photoCaption {
   margin: 10px 0 0;
   text-align: center;
@@ -237,6 +223,14 @@
   opacity: 0.8;
 }
 
+.dItachi {
+  bottom: 11%;
+  right: 4%;
+  width: clamp(120px, 14vw, 180px);
+  opacity: 0.9;
+  z-index: 2; /* above the paper sheet, like a sticker on the desk */
+}
+
 .sSparkle {
   position: absolute;
   top: 26px;
@@ -289,5 +283,11 @@
   .dCat {
     display: block;
     opacity: 0.4;
+  }
+
+  .dItachi {
+    width: 92px;
+    right: 1%;
+    opacity: 0.55;
   }
 }

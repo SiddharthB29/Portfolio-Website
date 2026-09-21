@@ -1,0 +1,7 @@
+.art {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* soft red ambience so the ink sits on the desk like the chalk doodles */
+  filter: drop-shadow(0 10px 26px rgba(232, 85, 63, 0.28));
+}
