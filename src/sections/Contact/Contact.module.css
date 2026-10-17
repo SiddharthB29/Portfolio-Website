@@ -3,6 +3,19 @@
   padding: clamp(80px, 12vw, 150px) clamp(20px, 6vw, 80px);
 }
 
+.dGintama {
+  top: 22%;
+  left: 3%;
+  width: clamp(96px, 10vw, 136px);
+  opacity: 0.82;
+}
+
+@media (max-width: 1000px) {
+  .dGintama {
+    display: none;
+  }
+}
+
 .sheet {
   position: relative;
   max-width: 640px;

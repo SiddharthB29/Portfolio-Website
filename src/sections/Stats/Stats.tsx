@@ -7,7 +7,8 @@ import CountUp from '../../components/CountUp';
 import { HandCircle } from '../../components/ChalkDoodles';
 import InkSticker, { InkArt } from '../../components/InkSticker';
 import rings from '../../assets/leetcode-rings.jpg';
-import konoha from '../../assets/ink/konohanew.png';
+import konoha from '../../assets/konoha.png';
+import kakashi from '../../assets/kakashi.png';
 
 export default function Stats() {
   const reduce = useReducedMotion();
@@ -16,7 +17,8 @@ export default function Stats() {
     <section className={styles.section} id="stats">
       <SectionHeading kicker="the grind, quantified" title="Stats" />
 
-      <InkSticker className={styles.dKonoha} delay={0.9}><InkArt src={konoha} /></InkSticker>
+      <InkSticker className={styles.dKonoha} delay={0.1}><InkArt src={konoha} /></InkSticker>
+      <InkSticker className={styles.dKakashi} delay={0.6}><InkArt src={kakashi} glow={false} /></InkSticker>
 
       <div className={styles.layout}>
         <motion.div

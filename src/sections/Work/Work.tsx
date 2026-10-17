@@ -5,12 +5,18 @@ import StickyNote from '../../components/StickyNote';
 import SectionHeading from '../../components/SectionHeading';
 import { motion } from 'framer-motion';
 import { fadeUp } from '../../motion/variants';
-import hirenestCover from '../../assets/hirenest-cover.jpg';
+import hirenestCover from '../../assets/hirenest.png';
+import InkSticker, { InkArt } from '../../components/InkSticker';
+import aizen from '../../assets/aizen.png';
+import hashira from '../../assets/hashira.png';
 
 export default function Work() {
   return (
     <section className={styles.section} id="work">
       <SectionHeading kicker="the proof" title="Work" />
+
+      <InkSticker className={styles.dAizen} delay={0.1}><InkArt src={aizen} /></InkSticker>
+      <InkSticker className={styles.dHashira} delay={0.55}><InkArt src={hashira} glow={false} /></InkSticker>
 
       <div className={styles.board}>
         {projects.map((p, i) => (
@@ -23,7 +29,7 @@ export default function Work() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <Polaroid caption={p.caption} tilt={i % 2 ? 2.5 : -3} href={p.href}>
-              <img src={hirenestCover} alt={`${p.name} cover art`} loading="lazy" />
+              <img src={hirenestCover} alt={`${p.name} cover art`} loading="lazy" style={{ objectFit: 'contain' }} />
             </Polaroid>
 
             <motion.div className={styles.meta} variants={fadeUp}>
@@ -31,6 +37,10 @@ export default function Work() {
                 {p.name}
                 <span className={styles.arrows} aria-hidden> ↗</span>
               </h3>
+              <div className={styles.projectLinks}>
+                <a href={p.href} target="_blank" rel="noreferrer">Live demo ↗</a>
+                {p.repoHref && <a href={p.repoHref} target="_blank" rel="noreferrer">GitHub ↗</a>}
+              </div>
               <p className={styles.desc}>{p.description}</p>
               <ul className={styles.tags}>
                 {p.tags.map((t) => (

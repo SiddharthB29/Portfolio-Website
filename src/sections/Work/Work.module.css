@@ -3,6 +3,27 @@
   padding: clamp(80px, 12vw, 150px) clamp(20px, 6vw, 80px);
 }
 
+.dAizen {
+  top: 34%;
+  right: 2%;
+  width: clamp(76px, 8vw, 108px);
+  opacity: 0.82;
+}
+
+.dHashira {
+  top: 48%;
+  left: 2%;
+  width: clamp(72px, 7.4vw, 106px);
+  opacity: 0.82;
+}
+
+@media (max-width: 1200px) {
+  .dAizen,
+  .dHashira {
+    display: none;
+  }
+}
+
 .board {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -33,6 +54,25 @@
 
 .arrows {
   color: var(--red);
+}
+
+.projectLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+  font-family: var(--font-hand2);
+  font-size: 1.05rem;
+}
+
+.projectLinks a {
+  color: var(--red);
+  text-decoration: underline dashed rgba(232, 85, 63, 0.6);
+  text-underline-offset: 4px;
+}
+
+.projectLinks a:hover {
+  color: var(--paper);
 }
 
 .desc {

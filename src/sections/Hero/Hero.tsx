@@ -4,10 +4,11 @@ import { profile } from '../../data/portfolio';
 import PaperSheet from '../../components/PaperSheet';
 import Tape from '../../components/Tape';
 import SocialLinks from '../../components/SocialLinks';
-import { Doodle, Bird, Plant, Flower, Mushroom, BrowserWindow, Sparkle, Spiral, SquiggleArrow, Noodles, Cat } from '../../components/ChalkDoodles';
+import { Doodle, Plant, Flower, BrowserWindow, Sparkle, Spiral, SquiggleArrow, Noodles, Cat } from '../../components/ChalkDoodles';
 import InkSticker, { InkArt } from '../../components/InkSticker';
-import itachi from '../../assets/ink/itachi.png';
+import itachi from '../../assets/itachi1.png';
 import portraitFallback from '../../assets/SiddharthBharti.jpg';
+import ulquiorra from '../../assets/Ulquiorra.png';
 
 export default function Hero() {
   const reduce = useReducedMotion();
@@ -15,16 +16,15 @@ export default function Hero() {
   return (
     <section className={styles.section} id="top">
       {/* desk doodles around the sheet */}
-      <Doodle className={styles.dBird} delay={1.0}><Bird /></Doodle>
       <Doodle className={styles.dPlant} delay={1.15}><Plant /></Doodle>
       <Doodle className={styles.dFlower} delay={1.3}><Flower /></Doodle>
-      <Doodle className={styles.dMushroom} delay={1.45}><Mushroom /></Doodle>
       <Doodle className={styles.dWindow} delay={1.2}><BrowserWindow /></Doodle>
       <Doodle className={styles.dNoodles} delay={1.35}><Noodles /></Doodle>
       <Doodle className={styles.dCat} delay={1.5}><Cat /></Doodle>
       <Doodle className={styles.dSpiral} delay={1.4}><Spiral /></Doodle>
       <Doodle className={styles.dArrow} delay={1.55} float={false}><SquiggleArrow /></Doodle>
-      <InkSticker className={styles.dItachi} delay={1.7}><InkArt src={itachi} /></InkSticker>
+      <InkSticker className={styles.dUlquiorra} delay={0.1}><InkArt src={ulquiorra} glow={false} /></InkSticker>
+      <InkSticker className={styles.dItachi} delay={0.65}><InkArt src={itachi} glow={false} /></InkSticker>
 
       <PaperSheet className={styles.sheet} from={-2}>
         <div className={styles.grid}>

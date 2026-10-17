@@ -4,6 +4,8 @@ import { skillGroups } from '../../data/portfolio';
 import SectionHeading from '../../components/SectionHeading';
 import InkSticker, { InkArt } from '../../components/InkSticker';
 import kurama from '../../assets/ink/newkurama.png';
+import ukitake from '../../assets/ukitake.png';
+import zoro from '../../assets/zoro.png';
 
 export default function Skills() {
   const reduce = useReducedMotion();
@@ -12,7 +14,9 @@ export default function Skills() {
     <section className={styles.section} id="skills">
       <SectionHeading kicker="tools of the trade" title="Skills" />
 
-      <InkSticker className={styles.dKurama} delay={0.9}><InkArt src={kurama} /></InkSticker>
+      <InkSticker className={styles.dKurama} delay={0.1}><InkArt src={kurama} /></InkSticker>
+      <InkSticker className={styles.dUkitake} delay={0.55}><InkArt src={ukitake} /></InkSticker>
+      <InkSticker className={styles.dZoro} delay={1}><InkArt src={zoro} /></InkSticker>
 
       <div className={styles.stack}>
         {skillGroups.map((group, i) => (

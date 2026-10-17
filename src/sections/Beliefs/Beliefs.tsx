@@ -3,11 +3,15 @@ import { beliefs } from '../../data/portfolio';
 import StickyNote from '../../components/StickyNote';
 import SectionHeading from '../../components/SectionHeading';
 import { Doodle, Fish } from '../../components/ChalkDoodles';
+import InkSticker, { InkArt } from '../../components/InkSticker';
+import ichigo from '../../assets/ichigo.png';
 
 export default function Beliefs() {
   return (
     <section className={styles.section} id="beliefs">
       <SectionHeading kicker="3 things I strongly believe in" title="Beliefs" />
+
+      <InkSticker className={styles.dIchigo} delay={0.15}><InkArt src={ichigo} /></InkSticker>
 
       <div className={styles.cluster}>
         {beliefs.map((b, i) => (

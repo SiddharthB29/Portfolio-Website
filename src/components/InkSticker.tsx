@@ -42,6 +42,6 @@ export default function InkSticker({ className, delay = 0.8, children }: InkStic
  * scripts/make-transparent.mjs) so it floats straight on the desk.
  * The wrapper must be sized (width) by the section's own CSS class.
  */
-export function InkArt({ src, className }: { src: string; className?: string }) {
-  return <img aria-hidden className={`${styles.art} ${className ?? ''}`} src={src} alt="" />;
+export function InkArt({ src, className, glow = true }: { src: string; className?: string; glow?: boolean }) {
+  return <img aria-hidden className={`${styles.art} ${glow ? '' : styles.noGlow} ${className ?? ''}`} src={src} alt="" />;
 }

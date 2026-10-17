@@ -4,6 +4,8 @@ import { checklist, email } from '../../data/portfolio';
 import SectionHeading from '../../components/SectionHeading';
 import SocialLinks from '../../components/SocialLinks';
 import { Doodle, Bird, Plant } from '../../components/ChalkDoodles';
+import InkSticker, { InkArt } from '../../components/InkSticker';
+import gintama from '../../assets/gintama.png';
 
 export default function Contact() {
   const reduce = useReducedMotion();
@@ -11,6 +13,8 @@ export default function Contact() {
   return (
     <section className={styles.section} id="contact">
       <SectionHeading kicker="what I look for" title="Let's talk" />
+
+      <InkSticker className={styles.dGintama} delay={0.15}><InkArt src={gintama} /></InkSticker>
 
       <motion.div
         className={styles.sheet}

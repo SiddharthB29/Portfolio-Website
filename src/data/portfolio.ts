@@ -7,6 +7,7 @@ export interface Project {
   name: string;
   description: string;
   href: string;
+  repoHref?: string;
   image: string;
   caption: string;
   tags: string[];
@@ -29,7 +30,7 @@ export interface Social {
 export const profile = {
   name: 'Siddharth Bharti',
   firstName: 'Siddharth',
-  roles: ['Backend Developer', 'Competitive Programmer'],
+  roles: ['Backend Developer'],
   tagline: {
     plain: 'Crazy ideas,',
     hand: 'compiled clean.',
@@ -42,17 +43,17 @@ export const projects: Project[] = [
   {
     name: 'HireNest',
     description: 'Campus hiring & placement management — job posts, drive tracking and candidate pipelines for college placement cells.',
-    href: 'https://github.com/SiddharthB29',
+    href: 'https://hirenest-rho.vercel.app/',
+    repoHref: 'https://github.com/SiddharthB29/HireNest',
     image: 'hirenest',
     caption: 'campus hiring, managed.',
     tags: ['placement drives', 'pipelines', 'full-stack'],
-    note: 'case study + repo — coming soon',
   },
 ];
 
 export const stats = {
   handle: '@siddharthbhartii',
-  problemsSolved: 400,
+  problemsSolved: 500,
   maxContestRating: 1523,
   profileUrl: 'https://leetcode.com/u/siddharthbhartii/',
   stamp: 'GRIND VERIFIED',
