@@ -31,7 +31,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 0;
 }
 
 body {
@@ -68,7 +68,7 @@ button {
 }
 
 section {
-  scroll-margin-top: 104px;
+  scroll-margin-top: 0;
 }
 
 :where(a, button, [tabindex]):focus-visible {
