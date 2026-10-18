@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import styles from './SectionHeading.module.css';
 
 interface SectionHeadingProps {
@@ -9,11 +9,12 @@ interface SectionHeadingProps {
 }
 
 export default function SectionHeading({ kicker, title, tilt = -1.5 }: SectionHeadingProps) {
+  const reduce = useReducedMotion();
   return (
     <motion.div
       className={styles.wrap}
-      initial={{ opacity: 0, y: 26 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduce ? false : { opacity: 0, y: 26 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.6 }}
       transition={{ type: 'spring', stiffness: 80, damping: 14 }}
     >
@@ -33,14 +34,15 @@ export default function SectionHeading({ kicker, title, tilt = -1.5 }: SectionHe
         viewBox="0 0 220 14"
         fill="none"
         aria-hidden
+        focusable="false"
       >
         <motion.path
           d="M4 9 Q40 3 74 8 Q112 13 150 7 Q182 3 216 8"
           stroke="var(--red)"
           strokeWidth="3.4"
           strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
+          initial={reduce ? false : { pathLength: 0 }}
+          whileInView={reduce ? undefined : { pathLength: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.25 }}
         />

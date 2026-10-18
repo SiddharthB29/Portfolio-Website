@@ -22,8 +22,8 @@ export default function InkSticker({ className, delay = 0.8, children }: InkStic
       aria-hidden
       className={className}
       style={{ position: 'absolute', pointerEvents: 'none' }}
-      initial={{ scale: 0, rotate: -12, opacity: 0 }}
-      whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
+      initial={reduce ? false : { scale: 0, rotate: -12, opacity: 0 }}
+      whileInView={reduce ? undefined : { scale: 1, rotate: 0, opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ type: 'spring', stiffness: 160, damping: 14, delay }}
     >

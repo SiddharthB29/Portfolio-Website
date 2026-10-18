@@ -1,4 +1,5 @@
 import styles from './Beliefs.module.css';
+import { useReducedMotion } from 'framer-motion';
 import { beliefs } from '../../data/portfolio';
 import StickyNote from '../../components/StickyNote';
 import SectionHeading from '../../components/SectionHeading';
@@ -7,6 +8,7 @@ import InkSticker, { InkArt } from '../../components/InkSticker';
 import ichigo from '../../assets/ichigo.png';
 
 export default function Beliefs() {
+  const reduce = useReducedMotion();
   return (
     <section className={styles.section} id="beliefs">
       <SectionHeading kicker="3 things I strongly believe in" title="Beliefs" />
@@ -19,7 +21,7 @@ export default function Beliefs() {
             key={b.text}
             variant={b.variant}
             tilt={[-4, 2.5, 5][i]}
-            delay={i * 0.12}
+            delay={reduce ? 0 : i * 0.12}
             className={styles.note}
           >
             <span className={styles.text}>

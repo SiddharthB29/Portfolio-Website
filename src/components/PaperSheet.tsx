@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import styles from './PaperSheet.module.css';
 
@@ -16,12 +16,13 @@ interface PaperSheetProps {
  * Enters like a sheet tossed onto the desk (spring settle).
  */
 export default function PaperSheet({ children, className, from = -3, delay = 0, id }: PaperSheetProps) {
+  const reduce = useReducedMotion();
   return (
     <motion.div
       id={id}
       className={`${styles.sheet} paper-grain ${className ?? ''}`}
-      initial={{ opacity: 0, y: 80, rotate: from * 2 }}
-      whileInView={{ opacity: 1, y: 0, rotate: from }}
+      initial={reduce ? false : { opacity: 0, y: 80, rotate: from * 2 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0, rotate: from }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ type: 'spring', stiffness: 55, damping: 13, delay }}
     >

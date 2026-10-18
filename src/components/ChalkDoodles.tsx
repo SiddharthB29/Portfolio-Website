@@ -3,7 +3,7 @@
  * All are stroke-based and driven by `currentColor`, so sections tint them freely.
  * `Doodle` wraps any glyph: pops in with a spring, then idles with a gentle float.
  */
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import type { CSSProperties, ReactNode } from 'react';
 
 interface DoodleProps {
@@ -32,15 +32,17 @@ export function Doodle({
   delay = 0.6,
   float = true,
 }: DoodleProps & { children: ReactNode; delay?: number; float?: boolean }) {
+  const reduce = useReducedMotion();
   return (
     <motion.div
       className={className}
+      aria-hidden
       style={{ position: 'absolute', pointerEvents: 'none', ...style }}
-      initial={{ scale: 0, rotate: -14 }}
-      animate={{ scale: 1, rotate: 0 }}
+      initial={reduce ? false : { scale: 0, rotate: -14 }}
+      animate={reduce ? undefined : { scale: 1, rotate: 0 }}
       transition={{ type: 'spring', stiffness: 180, damping: 13, delay }}
     >
-      <motion.div animate={float ? floatIdle : undefined}>{children}</motion.div>
+      <motion.div animate={float && !reduce ? floatIdle : undefined}>{children}</motion.div>
     </motion.div>
   );
 }
@@ -212,6 +214,7 @@ export function Spiral({ className, style }: DoodleProps) {
 /* ---------- text doodles ---------- */
 
 export function HandCircle({ className, style }: DoodleProps) {
+  const reduce = useReducedMotion();
   /** Hand-drawn ellipse used to circle nav items / stamps. */
   return (
     <svg viewBox="0 0 120 52" className={className} style={style} fill="none" preserveAspectRatio="none">
@@ -220,8 +223,8 @@ export function HandCircle({ className, style }: DoodleProps) {
         stroke="currentColor"
         strokeWidth="2.4"
         strokeLinecap="round"
-        initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
+          initial={reduce ? false : { pathLength: 0 }}
+          animate={reduce ? undefined : { pathLength: 1 }}
         transition={{ duration: 0.7, ease: 'easeInOut', delay: 0.9 }}
       />
     </svg>

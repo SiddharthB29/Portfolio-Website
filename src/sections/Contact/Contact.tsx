@@ -19,8 +19,8 @@ export default function Contact() {
       <motion.div
         className={styles.sheet}
         variants={{ hidden: { opacity: 0, y: 70, rotate: -4 }, show: { opacity: 1, y: 0, rotate: -1.2, transition: { type: 'spring', stiffness: 55, damping: 13 } } }}
-        initial="hidden"
-        whileInView="show"
+        initial={reduce ? false : 'hidden'}
+        whileInView={reduce ? undefined : 'show'}
         viewport={{ once: true, amount: 0.3 }}
       >
         <p className={styles.kicker}>I do my best work when there&rsquo;s…</p>
@@ -30,8 +30,8 @@ export default function Contact() {
             <motion.li
               key={item}
               className={styles.item}
-              initial={reduce ? undefined : { opacity: 0, x: -18 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={reduce ? false : { opacity: 0, x: -18 }}
+              whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.35 + i * 0.22, duration: 0.4 }}
             >
@@ -51,15 +51,15 @@ export default function Contact() {
                   width="20"
                   height="20"
                   rx="3"
-                  initial={reduce ? undefined : { pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
+                  initial={reduce ? false : { pathLength: 0 }}
+                  whileInView={reduce ? undefined : { pathLength: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + i * 0.22, duration: 0.45 }}
                 />
                 <motion.path
                   d="M8 14 L12.5 19 L20 9"
-                  initial={reduce ? undefined : { pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
+                  initial={reduce ? false : { pathLength: 0 }}
+                  whileInView={reduce ? undefined : { pathLength: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.75 + i * 0.22, duration: 0.35 }}
                 />
@@ -73,9 +73,9 @@ export default function Contact() {
           className={styles.cta}
           href={`mailto:${email}?subject=Let%27s%20chat`}
           whileHover={reduce ? undefined : { rotate: -2, scale: 1.05 }}
-          whileTap={{ scale: 0.96 }}
-          initial={reduce ? undefined : { opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          whileTap={reduce ? undefined : { scale: 0.96 }}
+          initial={reduce ? false : { opacity: 0, scale: 0.8 }}
+          whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ type: 'spring', stiffness: 160, damping: 12, delay: 1.1 }}
         >

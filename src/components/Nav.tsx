@@ -9,19 +9,33 @@ function useActiveSection(ids: readonly string[]): string {
   const [active, setActive] = useState(ids[0]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActive(entry.target.id);
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
+    let frame = 0;
+    const updateActive = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const marker = window.innerHeight * 0.35;
+        const current = sections.find((section) => {
+          const bounds = section.getBoundingClientRect();
+          return bounds.top <= marker && bounds.bottom > marker;
+        });
+        if (current) setActive(current.id);
+        else if (window.scrollY < (sections[0]?.offsetTop ?? Infinity)) setActive('');
+        else if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+          setActive(ids[ids.length - 1] ?? '');
         }
-      },
-      { rootMargin: '-35% 0px -55% 0px' }
-    );
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
+      });
+    };
+    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('resize', updateActive);
+    updateActive();
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', updateActive);
+      window.removeEventListener('resize', updateActive);
+    };
   }, [ids]);
 
   return active;
@@ -42,8 +56,8 @@ export default function Nav() {
   return (
     <motion.header
       className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}
-      initial={{ y: -70, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={reduce ? false : { y: -70, opacity: 0 }}
+      animate={reduce ? undefined : { y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 70, damping: 14, delay: 0.25 }}
     >
       <nav className={styles.nav} aria-label="Primary">
@@ -67,17 +81,14 @@ export default function Nav() {
         </span>
 
         <ul className={styles.links}>
-          {nav.map((item, i) => {
+          {nav.map((item) => {
             const isActive = active === item.href.slice(1);
             return (
               <li key={item.href}>
-                <a href={item.href} className={`${styles.link} ${isActive ? styles.active : ''}`}>
+                <a href={item.href} aria-current={isActive ? 'location' : undefined} className={`${styles.link} ${isActive ? styles.active : ''}`}>
                   <span className={styles.label}>{item.label}</span>
                   {isActive && (
                     <HandCircle className={styles.circle} />
-                  )}
-                  {i === 0 && (
-                    <span className={styles.progressTag}>in-progress</span>
                   )}
                 </a>
               </li>

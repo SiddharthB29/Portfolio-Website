@@ -119,6 +119,39 @@
   border-bottom-style: solid;
 }
 
+.updated {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .card {
+    width: min(440px, calc(100% - 12px));
+  }
+
+  .numbers {
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .num {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .numLabel {
+    font-size: 0.95rem;
+  }
+}
+
 .stamp {
   position: absolute;
   top: -18px;

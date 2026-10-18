@@ -45,3 +45,7 @@
   color: var(--paper);
   border-color: var(--paper);
 }
+
+.top:focus-visible {
+  outline-offset: 5px;
+}

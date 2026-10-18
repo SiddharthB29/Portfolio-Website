@@ -31,13 +31,7 @@
 
 html {
   scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -74,7 +68,31 @@ button {
 }
 
 section {
-  scroll-margin-top: 96px;
+  scroll-margin-top: 104px;
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px dashed var(--red);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  transform: translateY(-180%);
+  padding: 10px 16px;
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  text-decoration: none;
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 /* ------- shared textures ------- */
@@ -128,5 +146,13 @@ section {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

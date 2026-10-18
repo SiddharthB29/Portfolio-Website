@@ -105,6 +105,11 @@
   text-underline-offset: 3px;
 }
 
+.mailNote a:focus-visible,
+.cta:focus-visible {
+  outline-color: var(--paper);
+}
+
 .socials {
   margin-top: 20px;
   justify-content: center;

@@ -30,7 +30,7 @@ export default function Hero() {
         <div className={styles.grid}>
           <motion.div
             className={styles.copy}
-            initial="hidden"
+            initial={reduce ? false : 'hidden'}
             animate="show"
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.35 } } }}
           >
@@ -84,7 +84,7 @@ export default function Hero() {
               className={styles.cta}
               variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
               whileHover={reduce ? undefined : { rotate: -1.5, scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
+              whileTap={reduce ? undefined : { scale: 0.97 }}
             >
               see the mess →
             </motion.a>
@@ -93,8 +93,8 @@ export default function Hero() {
           {/* portrait polaroid with drop-in photo slot */}
           <motion.div
             className={styles.photoWrap}
-            initial={{ opacity: 0, y: 50, rotate: 5 }}
-            animate={{ opacity: 1, y: 0, rotate: 3 }}
+            initial={reduce ? false : { opacity: 0, y: 50, rotate: 5 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0, rotate: 3 }}
             transition={{ type: 'spring', stiffness: 60, damping: 12, delay: 0.7 }}
             whileHover={reduce ? undefined : { rotate: 0, scale: 1.03 }}
           >
@@ -118,9 +118,9 @@ export default function Hero() {
         href="#work"
         className={styles.scrollHint}
         aria-label="Scroll to work"
-        initial={{ opacity: 0 }}
+        initial={reduce ? false : { opacity: 0 }}
         animate={reduce ? { opacity: 1 } : { opacity: 1, y: [0, 8, 0] }}
-        transition={{ delay: 1.8, duration: 1.6, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
+        transition={{ delay: 1.8, duration: 1.6, repeat: reduce ? 0 : Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
       >
         <svg viewBox="0 0 24 40" width="22" height="38" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
           <path d="M12 4 V30 M5 24 L12 32 L19 24" />

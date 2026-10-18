@@ -24,8 +24,8 @@ export default function Stats() {
         <motion.div
           className={styles.photoSlot}
           variants={{ hidden: { opacity: 0, y: 60, rotate: -8 }, show: { opacity: 1, y: 0, rotate: -3, transition: { type: 'spring', stiffness: 55, damping: 12 } } }}
-          initial="hidden"
-          whileInView="show"
+          initial={reduce ? false : 'hidden'}
+          whileInView={reduce ? undefined : 'show'}
           viewport={{ once: true, amount: 0.3 }}
         >
           <Polaroid caption="orbiting leetcode" tilt={-3} href={stats.profileUrl}>
@@ -36,8 +36,8 @@ export default function Stats() {
         <motion.div
           className={styles.card}
           variants={{ hidden: { opacity: 0, y: 60, rotate: 5 }, show: { opacity: 1, y: 0, rotate: 1.5, transition: { type: 'spring', stiffness: 55, damping: 12, delay: 0.15 } } }}
-          initial="hidden"
-          whileInView="show"
+          initial={reduce ? false : 'hidden'}
+          whileInView={reduce ? undefined : 'show'}
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className={styles.graphCard}>
@@ -64,6 +64,7 @@ export default function Stats() {
             <a className={styles.profileLink} href={stats.profileUrl} target="_blank" rel="noreferrer">
               peek the profile ↗
             </a>
+            <p className={styles.updated}>Stats last updated {stats.lastUpdated}</p>
 
             <motion.div
               className={styles.stamp}

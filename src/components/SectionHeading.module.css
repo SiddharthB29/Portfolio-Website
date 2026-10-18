@@ -32,3 +32,10 @@
   height: 14px;
   margin-top: 6px;
 }
+
+@media (max-width: 560px) {
+  .kicker {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+  }
+}

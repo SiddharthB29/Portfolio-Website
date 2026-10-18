@@ -10,8 +10,9 @@ import Footer from './sections/Footer/Footer';
 export default function App() {
   return (
     <>
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <Nav />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <Work />
         <Stats />

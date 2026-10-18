@@ -56,6 +56,7 @@ export const stats = {
   problemsSolved: 500,
   maxContestRating: 1523,
   profileUrl: 'https://leetcode.com/u/siddharthbhartii/',
+  lastUpdated: 'October 2026',
   stamp: 'GRIND VERIFIED',
 } as const;
 

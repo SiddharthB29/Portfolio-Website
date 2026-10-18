@@ -32,8 +32,8 @@ export default function Polaroid({
     <motion.figure
       className={`${styles.card} paper-grain ${className ?? ''}`}
       style={{ rotate: restRotate }}
-      initial={{ opacity: 0, y: 60, rotate: restRotate - 6 }}
-      whileInView={{ opacity: 1, y: 0, rotate: restRotate }}
+      initial={reduce ? false : { opacity: 0, y: 60, rotate: restRotate - 6 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0, rotate: restRotate }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ type: 'spring', stiffness: 60, damping: 12, delay }}
       whileHover={

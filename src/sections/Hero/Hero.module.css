@@ -225,8 +225,8 @@
 }
 
 .dUlquiorra {
-  bottom: 68%;
-  left: 3%;
+  left: clamp(12px, 5vw, 72px);
+  bottom: 64%;
   width: clamp(96px, 10vw, 128px);
   opacity: 0.84;
   z-index: 2;
@@ -280,6 +280,26 @@
 }
 
 @media (max-width: 560px) {
+  .section {
+    padding-top: 112px;
+    padding-bottom: 76px;
+  }
+
+  .name {
+    font-size: clamp(2.8rem, 15vw, 4rem);
+  }
+
+  .location {
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+  }
+
+  .dNoodles,
+  .dSpiral,
+  .dArrow {
+    display: none;
+  }
+
   .dWindow,
   .dCat {
     display: block;

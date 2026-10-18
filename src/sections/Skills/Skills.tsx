@@ -24,8 +24,8 @@ export default function Skills() {
             key={group.index}
             className={styles.card}
             variants={{ hidden: { opacity: 0, y: 50, rotate: i % 2 ? 4 : -4 }, show: { opacity: 1, y: 0, rotate: i % 2 ? 1.2 : -1.2, transition: { type: 'spring', stiffness: 70, damping: 13, delay: i * 0.07 } } }}
-            initial="hidden"
-            whileInView="show"
+            initial={reduce ? false : 'hidden'}
+            whileInView={reduce ? undefined : 'show'}
             viewport={{ once: true, amount: 0.35 }}
             whileHover={reduce ? undefined : { rotate: 0, scale: 1.015, y: -4, transition: { type: 'spring', stiffness: 260, damping: 16 } }}
           >

@@ -25,8 +25,8 @@ export default function StickyNote({
     <motion.div
       className={`${styles.note} ${styles[variant]} paper-grain ${className ?? ''}`}
       style={{ rotate: restRotate }}
-      initial={{ opacity: 0, y: 40, rotate: restRotate - 5 }}
-      whileInView={{ opacity: 1, y: 0, rotate: restRotate }}
+      initial={reduce ? false : { opacity: 0, y: 40, rotate: restRotate - 5 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0, rotate: restRotate }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ type: 'spring', stiffness: 90, damping: 11, delay }}
       whileHover={

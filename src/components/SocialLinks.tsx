@@ -32,11 +32,11 @@ export default function SocialLinks({ className }: { className?: string }) {
           rel="noreferrer"
           aria-label={s.label}
           title={s.label}
-          initial={{ opacity: 0, scale: 0.6 }}
+          initial={reduce ? false : { opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: 'spring', stiffness: 240, damping: 14, delay: 0.5 + i * 0.08 }}
           whileHover={reduce ? undefined : { rotate: -8, scale: 1.18 }}
-          whileTap={{ scale: 0.92 }}
+          whileTap={reduce ? undefined : { scale: 0.92 }}
         >
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
             {paths[s.icon]}

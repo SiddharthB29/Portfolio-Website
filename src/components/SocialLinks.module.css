@@ -20,3 +20,8 @@
   border-color: var(--red);
   background: rgba(232, 85, 63, 0.08);
 }
+
+.row a:focus-visible {
+  outline-color: var(--red);
+  outline-offset: 4px;
+}
